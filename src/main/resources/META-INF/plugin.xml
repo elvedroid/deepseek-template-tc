@@ -17,6 +17,9 @@
                     text="Generate Callback"
                     description="Generate callback">
                 <add-to-group group-id="aigent" anchor="first"/>
+                <keyboard-shortcut
+                        keymap="$default"
+                        first-keystroke="control alt G"/>
             </action>
         </group>
     </actions>
