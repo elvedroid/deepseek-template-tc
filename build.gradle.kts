@@ -155,3 +155,23 @@ intellijPlatformTesting {
         }
     }
 }
+
+tasks.buildPlugin {
+    archiveFileName.set("aigent.jar")
+}
+
+tasks.register("updateMetadata") {
+    doLast {
+        val xml = """
+            <plugins>
+              <plugin 
+                id="${project.group}.${project.name}" 
+                url="${project.properties["updateSiteUrl"]}/aigent.jar" 
+                version="${project.version}">
+                <description>AI Android Code Generator</description>
+              </plugin>
+            </plugins>
+            """.trimIndent()
+        File("updatePlugins.xml").writeText(xml)
+    }
+}
